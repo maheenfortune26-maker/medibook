@@ -4,7 +4,7 @@ A complete MERN stack application with three portals: **Patient**, **Doctor**, a
 
 ---
 
-## 🆕 Three New Features (Beyond the Tutorial)
+## Features 
 
 ### 1. 🔬 AI Symptom Checker
 Patients describe their symptoms (via quick-select chips or free text) and the system recommends the right specialist using a smart keyword-matching engine. It also shows urgency level (High / Medium / Low) with color-coded alerts, and lists available matching doctors to book immediately.
@@ -125,8 +125,8 @@ npm run dev
 Runs at: **http://localhost:5174**
 
 Admin credentials (set in backend .env):
-- Email: `admin@medibook.com`
-- Password: `admin123`
+- Email: `maheenfortune0@gmail.com`
+- Password: `asdf`
 
 ---
 
