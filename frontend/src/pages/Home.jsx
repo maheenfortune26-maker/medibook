@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import DoctorCard from '../components/DoctorCard'
 
-import header_img from '../asserts/header_img.png'
-import group_profiles from '../asserts/group_profiles.png'
-import arrow_icon from '../asserts/arrow_icon.svg'
-import General_physician from '../asserts/General_physician.svg'
-import Gynecologist from '../asserts/Gynecologist.svg'
-import Dermatologist from '../asserts/Dermatologist.svg'
-import Pediatricians from '../asserts/Pediatricians.svg'
-import Neurologist from '../asserts/Neurologist.svg'
-import Gastroenterologist from '../asserts/Gastroenterologist.svg'
-import appointment_img from '../asserts/appointment_img.png'
+import header_img from '../assets/header_img (2).png'
+import group_profiles from '../assets/group_profiles (2).png'
+import arrow_icon from '../assets/arrow_icon (2).svg'
+import General_physician from '../assets/General_physician.svg'
+import Gynecologist from '../assets/Gynecologist.svg'
+import Dermatologist from '../assets/Dermatologist.svg'
+import Pediatricians from '../assets/Pediatricians.svg'
+import Neurologist from '../assets/Neurologist.svg'
+import Gastroenterologist from '../assets/Gastroenterologist.svg'
+import appointment_img from '../assets/appointment_img (2).png'
 
 const specialities = [
   { name: 'General physician', image: General_physician },
@@ -32,7 +32,6 @@ const Home = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-blue-700 rounded-b-[40px] mx-4 mt-4 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-8 py-12">
-          {/* Left */}
           <div className="flex-1 text-white">
             <div className="flex items-center gap-3 mb-4">
               <img src={group_profiles} alt="patients" className="w-28" />
@@ -55,13 +54,8 @@ const Home = () => {
               <img src={arrow_icon} alt="" className="w-4 h-4" />
             </button>
           </div>
-          {/* Right — header image */}
           <div className="flex-1 flex justify-center">
-            <img
-              src={header_img}
-              alt="Doctors"
-              className="w-full max-w-sm lg:max-w-md object-contain drop-shadow-2xl"
-            />
+            <img src={header_img} alt="Doctors" className="w-full max-w-sm lg:max-w-md object-contain drop-shadow-2xl" />
           </div>
         </div>
       </section>
@@ -104,10 +98,7 @@ const Home = () => {
           ))}
         </div>
         <div className="text-center mt-10">
-          <button
-            onClick={() => navigate('/doctors')}
-            className="bg-blue-50 text-primary font-medium px-8 py-3 rounded-full hover:bg-blue-100 transition-colors"
-          >
+          <button onClick={() => navigate('/doctors')} className="bg-blue-50 text-primary font-medium px-8 py-3 rounded-full hover:bg-blue-100 transition-colors">
             more
           </button>
         </div>
@@ -132,19 +123,12 @@ const Home = () => {
         <div className="bg-gradient-to-r from-primary to-blue-700 rounded-3xl overflow-hidden flex flex-col md:flex-row items-center">
           <div className="flex-1 p-10 text-white">
             <h2 className="text-3xl font-bold mb-4">Book Appointment<br />With 100+ Trusted Doctors</h2>
-            <button
-              onClick={() => navigate('/login')}
-              className="bg-white text-primary font-semibold px-7 py-3 rounded-full hover:bg-blue-50 transition-colors mt-2"
-            >
+            <button onClick={() => navigate('/login')} className="bg-white text-primary font-semibold px-7 py-3 rounded-full hover:bg-blue-50 transition-colors mt-2">
               Create account
             </button>
           </div>
           <div className="flex-1 flex justify-end">
-            <img
-              src={appointment_img}
-              alt="Appointment"
-              className="w-full max-w-xs object-contain"
-            />
+            <img src={appointment_img} alt="Appointment" className="w-full max-w-xs object-contain" />
           </div>
         </div>
       </section>
