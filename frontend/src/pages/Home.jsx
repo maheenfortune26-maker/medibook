@@ -1,137 +1,109 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppContext } from '../context/AppContext'
-import DoctorCard from '../components/DoctorCard'
-
-import header_img from '../assets/header_img (2).png'
-import group_profiles from '../assets/group_profiles (2).png'
-import arrow_icon from '../assets/arrow_icon (2).svg'
-import General_physician from '../assets/General_physician (2).svg'
-import Gynecologist from '../assets/Gynecologist (2).svg'
-import Dermatologist from '../assets/Dermatologist (2).svg'
-import Pediatricians from '../assets/Pediatricians (2).svg'
-import Neurologist from '../assets/Neurologist (2).svg'
-import Gastroenterologist from '../assets/Gastroenterologist (2).svg'
-import appointment_img from '../assets/appointment_img (2).png'
+import heroImage from '../assets/D.jfif'
+import groupProfiles from '../assets/group_profiles (2).png'
+import generalPhysician from '../assets/General_physician (2).svg'
+import gynecologist from '../assets/Gynecologist (2).svg'
+import dermatologist from '../assets/Dermatologist (2).svg'
+import pediatricians from '../assets/Pediatricians (2).svg'
+import neurologist from '../assets/Neurologist (2).svg'
+import gastroenterologist from '../assets/Gastroenterologist (2).svg'
+import appointmentImg from '../assets/appointment_img (2).png'
 
 const specialities = [
-  { name: 'General physician', image: General_physician },
-  { name: 'Gynecologist', image: Gynecologist },
-  { name: 'Dermatologist', image: Dermatologist },
-  { name: 'Pediatricians', image: Pediatricians },
-  { name: 'Neurologist', image: Neurologist },
-  { name: 'Gastroenterologist', image: Gastroenterologist },
+  { name: 'General physician', image: generalPhysician },
+  { name: 'Gynecologist', image: gynecologist },
+  { name: 'Dermatologist', image: dermatologist },
+  { name: 'Pediatricians', image: pediatricians },
+  { name: 'Neurologist', image: neurologist },
+  { name: 'Gastroenterologist', image: gastroenterologist },
 ]
 
 const Home = () => {
   const navigate = useNavigate()
-  const { doctors } = useAppContext()
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-blue-700 rounded-b-[40px] mx-4 mt-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-8 py-12">
-          <div className="flex-1 text-white">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={group_profiles} alt="patients" className="w-28" />
-              <div className="text-sm text-blue-100">
-                <span className="font-semibold text-white">1,00,000+</span> Patients
+      <div className='flex flex-col md:flex-row bg-blue-600 rounded-2xl mx-4 mt-4 overflow-hidden'>
+        <div className='flex flex-col justify-center px-8 py-12 md:w-1/2 text-white'>
+          <div className='flex items-center gap-3 mb-4'>
+            <img src={groupProfiles} alt='patients' className='w-24' />
+            <p className='text-sm'>1,00,000+ Patients</p>
+          </div>
+          <h1 className='text-3xl md:text-4xl font-bold leading-tight mb-4'>
+            Book Appointment<br />With Trusted Doctors
+          </h1>
+          <p className='text-sm mb-6 text-blue-100'>
+            Simply browse through our extensive list of trusted doctors, schedule<br />
+            your appointment hassle-free.
+          </p>
+          <button
+            onClick={() => navigate('/doctors')}
+            className='bg-white text-blue-600 font-semibold px-6 py-3 rounded-full w-fit hover:bg-blue-50 transition'
+          >
+            Book appointment
+          </button>
+        </div>
+        <div className='md:w-1/2 flex items-end justify-center'>
+          <img src={heroImage} alt='doctors' className='w-full h-80 object-cover object-top' />
+        </div>
+      </div>
+
+      {/* Speciality Section */}
+      <div className='py-16 text-center'>
+        <h2 className='text-2xl font-bold mb-2'>Find by Speciality</h2>
+        <p className='text-gray-500 text-sm mb-8'>
+          Simply browse through our extensive list of trusted doctors, schedule<br />
+          your appointment hassle-free.
+        </p>
+        <div className='flex justify-center flex-wrap gap-6'>
+          {specialities.map((s) => (
+            <div
+              key={s.name}
+              onClick={() => navigate(`/doctors/${s.name}`)}
+              className='flex flex-col items-center cursor-pointer hover:scale-105 transition'
+            >
+              <div className='w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-2'>
+                <img src={s.image} alt={s.name} className='w-10 h-10' />
               </div>
+              <p className='text-xs text-gray-600 w-20 text-center'>{s.name}</p>
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              Book Appointment<br />
-              With Trusted Doctors
-            </h1>
-            <p className="text-blue-100 mb-8 max-w-md text-sm leading-relaxed">
-              Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
-            </p>
-            <button
-              onClick={() => navigate('/doctors')}
-              className="flex items-center gap-2 bg-white text-primary font-semibold px-7 py-3 rounded-full hover:bg-blue-50 transition-colors shadow-md"
-            >
-              Book appointment
-              <img src={arrow_icon} alt="" className="w-4 h-4" />
-            </button>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <img src={header_img} alt="Doctors" className="w-full max-w-sm lg:max-w-md object-contain drop-shadow-2xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* Specialities */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-3">Find by Speciality</h2>
-          <p className="text-gray-500 max-w-md mx-auto text-sm">
-            Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
-          </p>
-        </div>
-        <div className="flex flex-wrap justify-center gap-6">
-          {specialities.map(spec => (
-            <button
-              key={spec.name}
-              onClick={() => navigate(`/doctors/${spec.name}`)}
-              className="flex flex-col items-center gap-3 p-4 hover:-translate-y-2 transition-transform duration-200 group cursor-pointer"
-            >
-              <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                <img src={spec.image} alt={spec.name} className="w-14 h-14 object-contain" />
-              </div>
-              <span className="text-xs font-medium text-gray-700 text-center w-20 leading-tight">{spec.name}</span>
-            </button>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* Top Doctors */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-3">Top Doctors to Book</h2>
-          <p className="text-gray-500 max-w-md mx-auto text-sm">
-            Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-          {doctors.slice(0, 10).map(doc => (
-            <DoctorCard key={doc._id} doctor={doc} />
-          ))}
-        </div>
-        <div className="text-center mt-10">
-          <button onClick={() => navigate('/doctors')} className="bg-blue-50 text-primary font-medium px-8 py-3 rounded-full hover:bg-blue-100 transition-colors">
-            more
+      {/* Top Doctors Section */}
+      <div className='py-8 px-4'>
+        <h2 className='text-2xl font-bold text-center mb-2'>Top Doctors to Book</h2>
+        <p className='text-gray-500 text-sm text-center mb-8'>
+          Simply browse through our extensive list of trusted doctors.
+        </p>
+        <div className='text-center'>
+          <button
+            onClick={() => navigate('/doctors')}
+            className='bg-blue-50 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-100 transition'
+          >
+            More
           </button>
         </div>
-      </section>
-
-      {/* AI Symptom Checker */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 border border-blue-100">
-          <div className="text-5xl">🔬</div>
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">Not sure which doctor to see?</h2>
-            <p className="text-gray-500 text-sm">Use our AI Symptom Checker to get an instant recommendation for the right specialist.</p>
-          </div>
-          <button onClick={() => navigate('/symptom-checker')} className="btn-primary whitespace-nowrap">
-            Check Symptoms →
-          </button>
-        </div>
-      </section>
+      </div>
 
       {/* CTA Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="bg-gradient-to-r from-primary to-blue-700 rounded-3xl overflow-hidden flex flex-col md:flex-row items-center">
-          <div className="flex-1 p-10 text-white">
-            <h2 className="text-3xl font-bold mb-4">Book Appointment<br />With 100+ Trusted Doctors</h2>
-            <button onClick={() => navigate('/login')} className="bg-white text-primary font-semibold px-7 py-3 rounded-full hover:bg-blue-50 transition-colors mt-2">
-              Create account
-            </button>
-          </div>
-          <div className="flex-1 flex justify-end">
-            <img src={appointment_img} alt="Appointment" className="w-full max-w-xs object-contain" />
-          </div>
+      <div className='bg-blue-600 rounded-2xl mx-4 my-8 overflow-hidden flex flex-col md:flex-row items-center'>
+        <div className='p-10 text-white md:w-1/2'>
+          <h2 className='text-2xl font-bold mb-4'>Book Appointment<br />With 100+ Trusted Doctors</h2>
+          <button
+            onClick={() => navigate('/login')}
+            className='bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-blue-50 transition'
+          >
+            Create account
+          </button>
         </div>
-      </section>
+        <div className='md:w-1/2'>
+          <img src={appointmentImg} alt='appointment' className='w-full h-56 object-cover' />
+        </div>
+      </div>
     </div>
   )
 }
